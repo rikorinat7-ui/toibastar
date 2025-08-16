@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init('user_3X5nX7v8Q4bV5g5s5V5w5');
-    </script>
     <style>
         * {
             margin: 0;
@@ -65,6 +62,16 @@
             overflow: hidden;
             position: relative;
             border: 1px solid var(--light-gold);
+            transform: scale(0.95);
+            opacity: 0;
+            animation: containerAppear 1.5s ease-out forwards 0.5s;
+        }
+
+        @keyframes containerAppear {
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .floral-corner {
@@ -73,6 +80,12 @@
             height: 120px;
             opacity: 0.2;
             z-index: 1;
+            transition: all 0.5s ease;
+        }
+
+        .floral-corner:hover {
+            opacity: 0.6;
+            transform: rotate(15deg);
         }
 
         .corner-tl {
@@ -110,6 +123,7 @@
             padding: 80px 30px;
             position: relative;
             opacity: 0;
+            transform: translateY(30px);
             animation: fadeIn 1.5s ease-in-out forwards;
         }
 
@@ -117,10 +131,12 @@
             from {
                 opacity: 0;
                 background-color: rgba(255, 255, 255, 1);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
                 background-color: rgba(255, 255, 255, 0.85);
+                transform: translateY(0);
             }
         }
 
@@ -133,6 +149,20 @@
             position: relative;
             display: inline-block;
             font-style: italic;
+            background: linear-gradient(45deg, var(--olive), var(--dark-olive));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from {
+                text-shadow: 0 0 5px rgba(107, 142, 35, 0.3);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(107, 142, 35, 0.6);
+            }
         }
 
         h1::after {
@@ -144,6 +174,16 @@
             width: 120px;
             height: 3px;
             background: var(--gold);
+            animation: lineExpand 1s ease-out forwards;
+        }
+
+        @keyframes lineExpand {
+            from {
+                width: 0;
+            }
+            to {
+                width: 120px;
+            }
         }
 
         .invitation-text {
@@ -159,6 +199,16 @@
             line-height: 1.8;
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            opacity: 0;
+            transform: scale(0.9);
+            animation: textAppear 1s ease-out forwards 1s;
+        }
+
+        @keyframes textAppear {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .invitation-text::before {
@@ -176,7 +226,21 @@
 
         .section {
             padding: 70px 40px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: sectionAppear 1s ease-out forwards;
         }
+
+        @keyframes sectionAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(1) { animation-delay: 1.2s; }
+        .section:nth-child(2) { animation-delay: 1.4s; }
+        .section:nth-child(3) { animation-delay: 1.6s; }
 
         .section-title {
             font-family: 'Playfair Display', serif;
@@ -217,14 +281,29 @@
             max-width: 320px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             border: 1px solid var(--light-gold);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: cardAppear 0.8s ease-out forwards;
         }
 
+        @keyframes cardAppear {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .detail-card:nth-child(1) { animation-delay: 1.5s; }
+        .detail-card:nth-child(2) { animation-delay: 1.7s; }
+        .detail-card:nth-child(3) { animation-delay: 1.9s; }
+
         .detail-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .detail-card::before {
@@ -241,6 +320,12 @@
             font-size: 2.8rem;
             color: var(--gold);
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .detail-card:hover .detail-icon {
+            transform: scale(1.2);
+            color: var(--dark-gold);
         }
 
         .detail-label {
@@ -280,6 +365,24 @@
             position: relative;
             overflow: hidden;
             z-index: 2;
+            transform: scale(0);
+            animation: countdownAppear 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        @keyframes countdownAppear {
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .countdown-box:nth-child(1) { animation-delay: 2.1s; }
+        .countdown-box:nth-child(2) { animation-delay: 2.3s; }
+        .countdown-box:nth-child(3) { animation-delay: 2.5s; }
+        .countdown-box:nth-child(4) { animation-delay: 2.7s; }
+
+        .countdown-box:hover {
+            transform: scale(1.1);
+            background: var(--dark-olive);
         }
 
         .countdown-box::before {
@@ -322,12 +425,37 @@
             position: relative;
             overflow: hidden;
             z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: buttonAppear 1s ease-out forwards 2.9s;
+        }
+
+        @keyframes buttonAppear {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .map-button:hover {
             background: linear-gradient(45deg, var(--dark-olive), var(--olive));
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(107, 142, 35, 0.4);
+        }
+
+        .map-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .map-button:hover::before {
+            left: 100%;
         }
 
         .map-button i {
@@ -433,6 +561,8 @@
             margin: 40px auto 0;
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
             font-family: 'Montserrat', sans-serif;
+            position: relative;
+            overflow: hidden;
         }
 
         .submit-button:hover {
@@ -441,11 +571,54 @@
             box-shadow: 0 12px 25px rgba(212, 175, 55, 0.4);
         }
 
+        .submit-button::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%, -50%);
+            transform-origin: 50% 50%;
+        }
+
+        .submit-button:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
+        }
+
         footer {
             text-align: center;
             padding: 40px;
             background: linear-gradient(to right, var(--olive), var(--dark-olive));
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="%23ffffff" opacity="0.05" d="M0,0 Q20,40 40,20 T80,40 T100,0 L100,20 L80,40 L60,20 L40,40 L20,20 L0,40 Z"/></svg>');
+            background-size: 150px;
+            opacity: 0.3;
         }
 
         .footer-text {
@@ -453,6 +626,34 @@
             max-width: 800px;
             margin: 0 auto;
             line-height: 1.8;
+            position: relative;
+        }
+
+        .sound-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .sound-control:hover {
+            transform: scale(1.1);
+            background: var(--dark-gold);
+        }
+
+        .sound-control i {
+            color: white;
+            font-size: 1.5rem;
         }
 
         /* Responsive design */
@@ -573,6 +774,11 @@
     </style>
 </head>
 <body>
+    <!-- Кнопка управления звуком -->
+    <div class="sound-control" id="soundControl">
+        <i class="fas fa-volume-up"></i>
+    </div>
+
     <div class="container">
         <div class="floral-corner corner-tl"></div>
         <div class="floral-corner corner-tr"></div>
@@ -580,7 +786,7 @@
         <div class="floral-corner corner-br"></div>
         
         <header>
-            <h1>40 ЖАС МЕРЕЙТОЙЫНА ШАҚЫРТУ</h1>
+            <h1>40 ЖАС МЕРЕЙТОЙЫНА ШАҚЫРУ</h1>
             <div class="invitation-text">
                 <p>Құрметті ағайын-туыс бауырлар, нағашы-жиен, бөлелер!</p>
                 <p>Сіздерді Бақбергеннің 40 жас мерей тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз.</p>
@@ -642,8 +848,6 @@
             </div>
         </section>
         
-      
-        
         <footer>
             <div class="footer-text">
                 Біздің қуанышымызға қосылғаныңыз үшін алғысымызды білдіреміз!<br>Сіздерді тойымыздың қадірлі қонақтары ретінде күтеміз!
@@ -651,7 +855,55 @@
         </footer>
     </div>
     
+    <!-- Аудио элемент (скрытый) -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает аудио элемент.
+    </audio>
+
     <script>
+        // Инициализация аудио
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const soundControl = document.getElementById('soundControl');
+        let isPlaying = false;
+
+        // Функция для воспроизведения музыки с учетом автостарта в браузерах
+        function playMusic() {
+            // Попытка воспроизведения
+            const playPromise = backgroundMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Автовоспроизведение началось
+                    isPlaying = true;
+                    soundControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+                })
+                .catch(error => {
+                    // Автовоспроизведение не сработало
+                    isPlaying = false;
+                    soundControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                });
+            }
+        }
+
+        // Обработчик клика по кнопке звука
+        soundControl.addEventListener('click', function() {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                soundControl.innerHTML = '<i class="fas fa-volume-mute"></i>';
+            } else {
+                backgroundMusic.play();
+                soundControl.innerHTML = '<i class="fas fa-volume-up"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Запуск музыки при загрузке страницы
+        window.addEventListener('load', function() {
+            // Небольшая задержка для лучшего UX
+            setTimeout(playMusic, 500);
+        });
+
         // Таймер обратного отсчета (без изменений)
         function updateCountdown() {
             const eventDate = new Date('August 17, 2025 19:00:00');
@@ -685,47 +937,6 @@
             const radio = element.querySelector('input[type="radio"]');
             radio.checked = true;
         }
-        
-        // Отправка формы через EmailJS (ОБНОВЛЕНО с вашим template_c83uo4k)
-        document.getElementById('rsvpForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Проверка выбора варианта
-            const selectedOption = document.querySelector('.radio-option.selected');
-            if (!selectedOption) {
-                alert('Тойға келетініңізді таңдаңыз!');
-                return;
-            }
-            
-            // Получаем данные формы
-            const name = document.getElementById('name').value.trim();
-            const attendance = document.querySelector('.radio-option.selected input').value;
-            const message = document.getElementById('message').value.trim();
-            
-            // Параметры для EmailJS
-            const templateParams = {
-                to_name: "Бақберген және Нұргүл",
-                from_name: name,
-                attendance: attendance,
-                message: message || "Тілек қалдырылмады",
-                event_date: "17.08.2025",
-                reply_to: "guest@example.com" // Можно добавить поле для email
-            };
-            
-            // Отправка через ваш шаблон template_c83uo4k
-            emailjs.send('service_lwewsqk', 'template_c83uo4k', templateParams)
-                .then(function(response) {
-                    alert('Сіздің жауабыңыз сәтті жіберілді! Рахмет!');
-                    // Сброс формы
-                    document.getElementById('rsvpForm').reset();
-                    document.querySelectorAll('.radio-option').forEach(opt => {
-                        opt.classList.remove('selected');
-                    });
-                }, function(error) {
-                    alert('Қате орын алды. Өтінемін, әзірше бізге телефон арқылы хабарласыңыз +7 778 612 4973.');
-                    console.error('EmailJS error:', error);
-                });
-        });
     </script>
 </body>
 </html>
