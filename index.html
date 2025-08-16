@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бақбергеннің 40 жас мерей тойына шақыру</title>
+    <title>40 жас мерей тойына шақыру</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -109,6 +109,19 @@
             text-align: center;
             padding: 80px 30px;
             position: relative;
+            opacity: 0;
+            animation: fadeIn 1.5s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                background-color: rgba(255, 255, 255, 1);
+            }
+            to {
+                opacity: 1;
+                background-color: rgba(255, 255, 255, 0.85);
+            }
         }
 
         h1 {
@@ -567,7 +580,7 @@
         <div class="floral-corner corner-br"></div>
         
         <header>
-            <h1>Бақбергеннің 40 жас мерей тойына шақыру</h1>
+            <h1>40 ЖАС МЕРЕЙТОЙЫНА ШАҚЫРТУ</h1>
             <div class="invitation-text">
                 <p>Құрметті ағайын-туыс бауырлар, нағашы-жиен, бөлелер!</p>
                 <p>Сіздерді Бақбергеннің 40 жас мерей тойына арналған салтанатты ақ дастарханымыздың қадірлі қонағы болуға шақырамыз.</p>
@@ -575,14 +588,14 @@
         </header>
         
         <section class="section">
-            <h2 class="section-title">Той жайлы</h2>
+            <h2 class="section-title"> 
             
             <div class="event-details">
                 <div class="detail-card">
                     <div class="detail-icon">
                         <i class="fas fa-crown"></i>
                     </div>
-                    <div class="detail-label">Ұйымдастырушылар</div>
+                    <div class="detail-label">Той иелері</div>
                     <div class="detail-value">Бақберген – Нұргүл</div>
                 </div>
                 
@@ -629,70 +642,13 @@
             </div>
         </section>
         
-        <section class="section">
-            <h2 class="section-title">Тойға келетініңізді растаңыз</h2>
-            
-            <form class="rsvp-form" id="rsvpForm">
-                <div class="form-group">
-                    <label class="form-label">Сіз тойға келесіз бе?</label>
-                    <div class="radio-group" id="attendance-options">
-                        <div class="radio-option" onclick="selectOption(this)">
-                            <input type="radio" name="attendance" id="option1" value="Иә, өзім барамын">
-                            <label for="option1">Иә, өзім барамын!</label>
-                        </div>
-                        <div class="radio-option" onclick="selectOption(this)">
-                            <input type="radio" name="attendance" id="option2" value="Жұбайыммен бірге барамын">
-                            <label for="option2">Жұбайыммен бірге барамын</label>
-                        </div>
-                        <div class="radio-option" onclick="selectOption(this)">
-                            <input type="radio" name="attendance" id="option3" value="Өкінішке орай, келе алмаймын">
-                            <label for="option3">Өкінішке орай, келе алмаймын</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="name">Аты-жөніңіз</label>
-                    <input type="text" id="name" class="form-input" placeholder="Аты-жөніңізді енгізіңіз" required>
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="message">Тілек-тұмарларыңыз (міндетті емес)</label>
-                    <textarea id="message" class="form-input" placeholder="Сіздің тілегіңіз..."></textarea>
-                </div>
-                
-                <button type="submit" class="submit-button">Жіберу</button>
-            </form>
-        </section>
+      
         
         <footer>
             <div class="footer-text">
                 Біздің қуанышымызға қосылғаныңыз үшін алғысымызды білдіреміз!<br>Сіздерді тойымыздың қадірлі қонақтары ретінде күтеміз!
             </div>
         </footer>
-    </div>
-    
-    <!DOCTYPE html>
-<html lang="kk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бақбергеннің 40 жас мерей тойына шақыру</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        emailjs.init('user_3X5nX7v8Q4bV5g5s5V5w5');
-    </script>
-    <style>
-        /* Все стили остаются без изменений */
-        /* ... (вставьте все CSS стили из предыдущего кода) ... */
-    </style>
-</head>
-<body>
-    <div class="container">
-        <!-- Весь HTML код остается без изменений -->
-        <!-- ... (вставьте весь HTML из предыдущего кода) ... -->
     </div>
     
     <script>
